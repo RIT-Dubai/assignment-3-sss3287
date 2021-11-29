@@ -195,5 +195,4 @@ For your new Home space...
     indoor_order(y, indoor_code_list)
     bathroom_order(y, bathroom_code_list)
 
-
 main()
