@@ -7,7 +7,7 @@ class Home_Category:
         self.code = code
         self.price = price
 
-    def garden_search(self, code):
+    def search_garden(self, code):
         '''This searches for garden items'''
         g={"p": ("3 pack garden flower", 5.0), "l": ("Hanging light wire", 10.0), "b": ("Garden bench", 35.0)}
         for item_code in g.keys():
@@ -22,7 +22,7 @@ class Home_Category:
                         self.price=i
                 return True
 
-    def indoor_search(self, code):
+    def search_indoor(self, code):
         '''This searches for indoor items'''
         i={"t": ("Small table lamp", 5.0), "f1": ("City picture frame", 7.0), "r": ("4x5 entry rug", 35.0),"f2": ("flower vase", 14.0)}
 
@@ -38,7 +38,7 @@ class Home_Category:
                         self.price=i
                 return True
 
-    def bathroom_search(self, code):
+    def search_bathroom(self, code):
         '''This searches for bathroom items'''
         b={"s": ("Soap holder", 5.0), "c": ("Shower Curtain", 10.0), "m": ("Anti-skid mat", 30.0)}
 
@@ -96,8 +96,8 @@ def garden_order(y, garden_code_list):
     a=Home_Category("", "", 0)
     print("Your order for a new home experience:")
     for i in garden_code_list:
-        a.garden_search(i)
-        if a.garden_search(i)==True:
+        a.search_garden(i)
+        if a.search_garden(i)==True:
             print(a.name, end=" - ")
             print("$"+str(a.price))
 
@@ -105,8 +105,8 @@ def indoor_order(y, indoor_code_list):
     '''This creates an order for indoor items'''
     b=Home_Category("", "", 0)
     for i in indoor_code_list:
-        b.indoor_search(i)
-        if b.indoor_search(i)==True:
+        b.search_indoor(i)
+        if b.search_indoor(i)==True:
             print(b.name, end=" - ")
             print("$"+str(b.price))
 
@@ -114,8 +114,8 @@ def bathroom_order(y, bathroom_code_list):
     '''This creates an order for bathroom items'''
     c=Home_Category("", "", 0)
     for i in bathroom_code_list:
-        c.bathroom_search(i)
-        if c.bathroom_search(i)==True:
+        c.search_bathroom(i)
+        if c.search_bathroom(i)==True:
             print(c.name, end=" - ")
             print("$"+str(c.price))
 
@@ -126,7 +126,7 @@ def order_item(ch, category, x, y, gcl=[], icl=[], bcl=[]):
     '''This creates an order for all items of respective categories'''
     if category=="g":
         for i in ch:
-            x.garden_search(i)
+            x.search_garden(i)
             y.garden.append(x.name)
             y.set_order_price(x.price)
             print("one", x.name, "is added to your home for", x.price)
@@ -135,7 +135,7 @@ def order_item(ch, category, x, y, gcl=[], icl=[], bcl=[]):
 
     elif category=="i":
         for i in ch:
-            x.indoor_search(i)
+            x.search_indoor(i)
             y.indoor.append(x.name)
             y.set_order_price(x.price)
             print("one", x.name, "is added to your home for", x.price)
@@ -144,7 +144,7 @@ def order_item(ch, category, x, y, gcl=[], icl=[], bcl=[]):
 
     elif category=="b":
         for i in ch:
-            x.bathroom_search(i)
+            x.search_bathroom(i)
             y.bathroom.append(x.name)
             y.set_order_price(x.price)
             print("one", x.name, "is added to your home for", x.price)
