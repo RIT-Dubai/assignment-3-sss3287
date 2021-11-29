@@ -111,41 +111,41 @@ def bathroom_options():
         print(Bathroom_items[i], end="  ")
 
 def garden_order(y, garden_code_list):
-    z1=Home_Category("", "", 0)
+    a = Home_Category("", "", 0)
     print("Your order for a new home experience:")
     for i in garden_code_list:
-        z1.garden_search(i)
-        if z1.garden_search(i)==True:
-            print(z1.get_name(), end=" - ")
-            print("$"+str(z1.get_price()))
+        a.garden_search(i)
+        if a.garden_search(i)==True:
+            print(a.get_name(), end=" - ")
+            print("$"+str(a.get_price()))
 
 def indoor_order(y, indoor_code_list):
-    z2=Home_Category("", "", 0)
+    b = Home_Category("", "", 0)
     for i in indoor_code_list:
-        z2.indoor_search(i)
-        if z2.indoor_search(i)==True:
-            print(z2.get_name(), end=" - ")
-            print("$"+str(z2.get_price()))
+        b.indoor_search(i)
+        if b.indoor_search(i)==True:
+            print(b.get_name(), end=" - ")
+            print("$"+str(b.get_price()))
 
 def bathroom_order(y, bathroom_code_list):
-    z3=Home_Category("", "", 0)
+    c=Home_Category("", "", 0)
     for i in bathroom_code_list:
-        z3.bathroom_search(i)
-        if z3.bathroom_search(i)==True:
-            print(z3.get_name(), end=" - ")
-            print("$"+str(z3.get_price()))
+        c.bathroom_search(i)
+        if c.bathroom_search(i)==True:
+            print(c.get_name(), end=" - ")
+            print("$"+str(c.get_price()))
 
 
     print("Total due: $"+str(y.get_price()))
 
-def order_item(ch, category, x, y, gcl=[], icl=[], bcl=[]):
+def order_item(ch, category, x, y, gc=[], ic=[], bc=[]):
     if category=="g":
         for i in ch:
             x.garden_search(i)
             y.set_garden(x.get_name())
             y.set_order_price(x.get_price())
             print("one", x.get_name(), "is added to your home for", x.get_price())
-            gcl.append(i)
+            gc.append(i)
         return
 
     elif category=="i":
@@ -154,7 +154,7 @@ def order_item(ch, category, x, y, gcl=[], icl=[], bcl=[]):
             y.set_indoor(x.get_name())
             y.set_order_price(x.get_price())
             print("one", x.get_name(), "is added to your home for", x.get_price())
-            icl.append(i)
+            ic.append(i)
         return
 
     elif category=="b":
@@ -163,7 +163,7 @@ def order_item(ch, category, x, y, gcl=[], icl=[], bcl=[]):
             y.set_bathroom(x.get_name())
             y.set_order_price(x.get_price())
             print("one", x.get_name(), "is added to your home for", x.get_price())
-            bcl.append(i)
+            bc.append(i)
         return
 
 def main():
