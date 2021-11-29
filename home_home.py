@@ -1,4 +1,5 @@
 class Home_Category:
+    '''this class is stores the item of each category'''
     __slots__ = ["__name", "__code", "__price"]
 
     def __init__(self, name, code, price):
@@ -60,6 +61,7 @@ class Home_Category:
         return self.__code
 
 class Home_Avatar:
+    '''this class is used as the basket for shopping also contains the dictionaries for each category'''
     __slots__ = ["__garden", "__indoor", "__bathroom", "__total_price"]
 
     def __init__(self, garden, indoor, bathroom, price):
