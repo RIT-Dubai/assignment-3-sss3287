@@ -75,4 +75,11 @@ def bathroom_options():
         print(i, end=": ")
         print(Bathroom_items[i], end="  ")
 
+def print_order():
+    return
+
+def search_item(ch):
+    return
+
+
 
