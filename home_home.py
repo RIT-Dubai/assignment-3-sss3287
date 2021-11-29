@@ -1,171 +1,154 @@
 class Home_Category:
-    '''this class is stores the item of each category'''
-    __slots__ = ["__name", "__code", "__price"]
+    '''This class searches for that particular item in each category'''
+    __slots__ = ["name", "code", "price"]
 
     def __init__(self, name, code, price):
-        self.__name = name
-        self.__code = code
-        self.__price = price
+        self.name = name
+        self.code = code
+        self.price = price
 
     def garden_search(self, code):
-        GARDEN={"p": ("3 pack garden flower", 5.0), "l": ("Hanging light wire", 10.0), "b": ("Garden bench", 35.0)}
-        for item_code in GARDEN.keys():
+        '''This searches for garden items'''
+        g={"p": ("3 pack garden flower", 5.0), "l": ("Hanging light wire", 10.0), "b": ("Garden bench", 35.0)}
+        for item_code in g.keys():
             count=0
             if item_code==code:
-                self.__code=code
-                for i in GARDEN[item_code]:
+                self.code=code
+                for i in g[item_code]:
                     if count==0:
-                        self.__name=i
+                        self.name=i
                         count+=1
                     elif count==1:
-                        self.__price=i
+                        self.price=i
                 return True
 
     def indoor_search(self, code):
-        INDOOR={"t": ("Small table lamp", 5.0), "f1": ("City picture frame", 7.0), "r": ("4x5 entry rug", 35.0),"f2": ("flower vase", 14.0)}
+        '''This searches for indoor items'''
+        i={"t": ("Small table lamp", 5.0), "f1": ("City picture frame", 7.0), "r": ("4x5 entry rug", 35.0),"f2": ("flower vase", 14.0)}
 
-        for item_code in INDOOR.keys():
+        for item_code in i.keys():
             count=0
             if item_code==code:
-                self.__code=code
-                for i in INDOOR[item_code]:
+                self.code=code
+                for i in i[item_code]:
                     if count==0:
-                        self.__name=i
+                        self.name=i
                         count+=1
                     elif count==1:
-                        self.__price=i
+                        self.price=i
                 return True
 
     def bathroom_search(self, code):
-        BATHROOM={"s": ("Soap holder", 5.0), "c": ("Shower Curtain", 5.0), "m": ("Anti-skid doormat", 30.0)}
+        '''This searches for bathroom items'''
+        b={"s": ("Soap holder", 5.0), "c": ("Shower Curtain", 10.0), "m": ("Anti-skid mat", 30.0)}
 
-        for item_code in BATHROOM.keys():
+        for item_code in b.keys():
             count=0
             if item_code==code:
-                self.__code=code
-                for i in BATHROOM[item_code]:
+                self.code=code
+                for i in b[item_code]:
                     if count==0:
-                        self.__name=i
+                        self.name=i
                         count+=1
                     elif count==1:
-                        self.__price=i
+                        self.price=i
                 return True
 
-    def get_price(self):
-        return self.__price
-
-    def get_name(self):
-        return self.__name
-
-    def get_code(self):
-        return self.__code
-
 class Home_Avatar:
-    '''this class is used as the basket for shopping also contains the dictionaries for each category'''
-    __slots__ = ["__garden", "__indoor", "__bathroom", "__total_price"]
+    '''This class stores a particular item of each category'''
+    __slots__ = ["garden", "indoor", "bathroom", "total_price"]
 
     def __init__(self, garden, indoor, bathroom, price):
-        self.__garden=garden
-        self.__indoor=indoor
-        self.__bathroom=bathroom
-        self.__total_price=price
+        self.garden=garden
+        self.indoor=indoor
+        self.bathroom=bathroom
+        self.total_price=price
 
     def set_order_price(self, price):
-        self.__total_price+=price
-
-    def set_garden(self, garden_item):
-        self.__garden.append(garden_item)
-
-    def set_indoor(self, indoor_item):
-        self.__indoor.append(indoor_item)
-
-    def set_bathroom(self, bathroom_item):
-        self.__bathroom.append(bathroom_item)
-
-    def get_price(self):
-        return self.__total_price
-    def get_garden(self):
-        return self.__garden
-    def get_indoor(self):
-        return self.__indoor
-    def get_bathroom(self):
-        return self.__bathroom
+        self.total_price+=price
 
 def garden_options():
-    Garden_items={"3 pack garden flower (p)": "$5.0", "Hanging light wire (l)": "$10.0", "Garden bench (b)": "$35.0", "None and next (n)": "$0.0"}
+    '''This provides the options of garden items'''
+    g_items={"3 pack garden flower (p)": "$5.0", "Hanging light wire (l)": "$10.0", "Garden bench (b)": "$35.0", "None and next (n)": "$0.0"}
 
-    for i in Garden_items.keys():
+    for i in g_items.keys():
         print(i, end=": ")
-        print(Garden_items[i], end="  ")
+        print(g_items[i], end="  ")
 
 def indoor_options():
-    Indoor_items={"Small table lamp (t)": "$5.0", "City picture frame (f1)": "$7.0", "4x5 entry rug (r)": "$35.0","flower vase (f2)": "$14.0", "None and next (n)": "$0.0"}
+    '''This provides the options of indoor items'''
+    i_items={"Small table lamp (t)": "$5.0", "City picture frame (f1)": "$7.0", "4x5 entry rug (r)": "$35.0","flower vase (f2)": "$14.0", "None and next (n)": "$0.0"}
 
-    for i in Indoor_items.keys():
+    for i in i_items.keys():
         print(i, end=": ")
-        print(Indoor_items[i], end="  ")
+        print(i_items[i], end="  ")
 
 def bathroom_options():
-    Bathroom_items={"Soap holder (s)": "$5.0", "Shower Curtain (c)": "$5.0", "Anti-skid doormat (m)": "$30.0", "None and next (n)": "$0.0"}
+    '''This provides the options of bathroom items'''
+    b_items={"Soap holder (s)": "$5.0", "Shower Curtain (c)": "$10.0", "Anti-skid doormat (m)": "$30.0", "None and next (n)": "$0.0"}
 
-    for i in Bathroom_items.keys():
+    for i in b_items.keys():
         print(i, end=": ")
-        print(Bathroom_items[i], end="  ")
+        print(b_items[i], end="  ")
 
 def garden_order(y, garden_code_list):
-    a = Home_Category("", "", 0)
+    '''This creates an order for garden items'''
+    a=Home_Category("", "", 0)
     print("Your order for a new home experience:")
     for i in garden_code_list:
         a.garden_search(i)
         if a.garden_search(i)==True:
-            print(a.get_name(), end=" - ")
-            print("$"+str(a.get_price()))
+            print(a.name, end=" - ")
+            print("$"+str(a.price))
 
 def indoor_order(y, indoor_code_list):
-    b = Home_Category("", "", 0)
+    '''This creates an order for indoor items'''
+    b=Home_Category("", "", 0)
     for i in indoor_code_list:
         b.indoor_search(i)
         if b.indoor_search(i)==True:
-            print(b.get_name(), end=" - ")
-            print("$"+str(b.get_price()))
+            print(b.name, end=" - ")
+            print("$"+str(b.price))
 
 def bathroom_order(y, bathroom_code_list):
+    '''This creates an order for bathroom items'''
     c=Home_Category("", "", 0)
     for i in bathroom_code_list:
         c.bathroom_search(i)
         if c.bathroom_search(i)==True:
-            print(c.get_name(), end=" - ")
-            print("$"+str(c.get_price()))
+            print(c.name, end=" - ")
+            print("$"+str(c.price))
 
 
-    print("Total due: $"+str(y.get_price()))
+    print("Total due: $"+str(y.total_price))
 
-def order_item(ch, category, x, y, gc=[], ic=[], bc=[]):
+def order_item(ch, category, x, y, gcl=[], icl=[], bcl=[]):
+    '''This creates an order for all items of respective categories'''
     if category=="g":
         for i in ch:
             x.garden_search(i)
-            y.set_garden(x.get_name())
-            y.set_order_price(x.get_price())
-            print("one", x.get_name(), "is added to your home for", x.get_price())
-            gc.append(i)
+            y.garden.append(x.name)
+            y.set_order_price(x.price)
+            print("one", x.name, "is added to your home for", x.price)
+            gcl.append(i)
         return
 
     elif category=="i":
         for i in ch:
             x.indoor_search(i)
-            y.set_indoor(x.get_name())
-            y.set_order_price(x.get_price())
-            print("one", x.get_name(), "is added to your home for", x.get_price())
-            ic.append(i)
+            y.indoor.append(x.name)
+            y.set_order_price(x.price)
+            print("one", x.name, "is added to your home for", x.price)
+            icl.append(i)
         return
 
     elif category=="b":
         for i in ch:
             x.bathroom_search(i)
-            y.set_bathroom(x.get_name())
-            y.set_order_price(x.get_price())
-            print("one", x.get_name(), "is added to your home for", x.get_price())
-            bc.append(i)
+            y.bathroom.append(x.name)
+            y.set_order_price(x.price)
+            print("one", x.name, "is added to your home for", x.price)
+            bcl.append(i)
         return
 
 def main():
@@ -178,36 +161,38 @@ For your new Home space...
     garden_code_list=[]
     indoor_code_list=[]
     bathroom_code_list=[]
-    ch1=input("Choose one type of garden idea (O for options, n for next category):")
-    if ch1!="n":
+    c1=input("Choose one type of garden idea (O for options, n for next category):")
+    if c1!="n":
         print("Garden options:")
-    while ch1!="n":
+    while c1!="n":
         garden_options()
-        ch1=input(":")
-        ch1_split=ch1.split()
-        order_item(ch1_split, "g", x, y, garden_code_list)
+        c1=input(":")
+        c1_split=c1.split()
+        if c1!="n":
+            order_item(c1_split, "g", x, y, garden_code_list)
 
-    ch2=input("Choose your indoor living space ideas (O for options, n for next category):")
-    if ch2!="n":
+    c2=input("Choose your indoor living space ideas (O for options, n for next category):")
+    if c2!="n":
         print("Indoor options:")
-    while ch2!="n":
+    while c2!="n":
         indoor_options()
-        ch2=input(":")
-        ch2_split=ch2.split()
-        order_item(ch2_split, "i", x, y, [], indoor_code_list)
+        c2=input(":")
+        c2_split=c2.split()
+        if c2!="n":
+            order_item(c2_split, "i", x, y, [], indoor_code_list)
 
-    ch3=input("Choose your bathroom ideas (O for options, n for exit):")
-    if ch3!="n":
+    c3=input("Choose your bathroom ideas (O for options, n for exit):")
+    if c3!="n":
         print("Bathroom options:")
-    while ch3!="n":
+    while c3!="n":
         bathroom_options()
-        ch3=input(":")
-        ch3_split=ch3.split()
-        order_item(ch3_split, "b", x, y, [], [], bathroom_code_list)
+        c3=input(":")
+        c3_split=c3.split()
+        if c3!="n":
+            order_item(c3_split, "b", x, y, [], [], bathroom_code_list)
 
     garden_order(y, garden_code_list)
     indoor_order(y, indoor_code_list)
     bathroom_order(y, bathroom_code_list)
 
 main()
-
