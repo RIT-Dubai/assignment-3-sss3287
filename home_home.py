@@ -48,5 +48,16 @@ class Home_Avatar:
     def get_price(self):
         return self.__total_price
 
+# y=Home_Avatar([],[],[],50)
+# y.order_price(50)
+# print(y.get_price())
+
+def garden_options():
+    Garden_items={"3 pack garden flower (p)": "$5.0", "Hanging light wire (l)": "$10.0", "Garden bench (b)": "$35.0", "None and next (n)": "$0.0"}
+    print("Garden options:")
+    for i in Garden_items.keys():
+        print(i, end=": ")
+        print(Garden_items[i], end="  ")
+
 
 
