@@ -42,5 +42,11 @@ class Home_Avatar:
         self.__bathroom=bathroom
         self.__total_price=price
 
+    def order_price(self, price):
+        self.__total_price+=price
+
+    def get_price(self):
+        return self.__total_price
+
 
 
