@@ -81,5 +81,19 @@ def print_order():
 def search_item(ch):
     return
 
+def main():
+    print("""
+Welcome to Home Ideas Center, where all orders include a new home feeling!\n
+For your new Home space...
+    """)
+    ch1=input("Choose one type of garden idea (O for options, n for next category):")
+    while ch1!="n":
+        ch1=input(garden_options())
+    ch2=input("Choose your indoor living space ideas (O for options, n for next category):")
+    while ch2!="n":
+        ch2=input(indoor_options())
+    ch3=input("Choose your bathroom ideas (O for options, n for exit):")
+    while ch3!="n":
+        ch3=input(bathroom_options())
 
 
