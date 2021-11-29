@@ -33,5 +33,5 @@ def test_bathroom_order():
 
 
 '''NOTE : In order for these tests to pass you may have comment out only the main function
-           that is def main() and call main in the plots_cli module
+           that is def main() and call main in the home_home module
            to do that just put # in front of them #def main(): and #main()'''
