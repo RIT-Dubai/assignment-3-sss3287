@@ -59,5 +59,20 @@ def garden_options():
         print(i, end=": ")
         print(Garden_items[i], end="  ")
 
+def indoor_options():
+    Indoor_items={"Small table lamp (t)": "$5.0", "City picture frame (f1)": "$7.0", "4x5 entry rug (r)": "$35.0","flower vase (f2)": "$14.0", "None and next (n)": "$0.0"}
+
+    print("Indoor options")
+    for i in Indoor_items.keys():
+        print(i, end=": ")
+        print(Indoor_items[i], end="  ")
+
+def bathroom_options():
+    Bathroom_items={"Soap holder (s)": "$5.0", "Shower Curtain (c)": "$5.0", "Anti-skid doormat (m)": "$30.0", "None and next (n)": "$0.0"}
+
+    print("Bathroom options")
+    for i in Bathroom_items.keys():
+        print(i, end=": ")
+        print(Bathroom_items[i], end="  ")
 
 
