@@ -33,4 +33,14 @@ class Home_Category:
                 self.__code=code
                 self.__price=BATHROOM[i][1]
 
+class Home_Avatar:
+    _slots_ = ["_garden", "indoor", "bathroom", "_total_price"]
+
+    def _init_(self, garden, indoor, bathroom, price):
+        self.__garden=garden
+        self.__indoor=indoor
+        self.__bathroom=bathroom
+        self.__total_price=price
+
+
 
