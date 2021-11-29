@@ -1,7 +1,7 @@
 class Home_Category:
-    _slots_ = ["_name", "code", "_price"]
+    __slots__ = ["_name", "code", "_price"]
 
-    def _init_(self, name, code, price):
+    def __init__(self, name, code, price):
         self.__name = name
         self.__code = code
         self.__price = price
@@ -34,9 +34,9 @@ class Home_Category:
                 self.__price=BATHROOM[i][1]
 
 class Home_Avatar:
-    _slots_ = ["_garden", "indoor", "bathroom", "_total_price"]
+    __slots__ = ["_garden", "indoor", "bathroom", "_total_price"]
 
-    def _init_(self, garden, indoor, bathroom, price):
+    def __init__(self, garden, indoor, bathroom, price):
         self.__garden=garden
         self.__indoor=indoor
         self.__bathroom=bathroom
@@ -96,4 +96,5 @@ For your new Home space...
     while ch3!="n":
         ch3=input(bathroom_options())
 
+main()
 
